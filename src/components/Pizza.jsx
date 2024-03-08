@@ -1,11 +1,19 @@
-const Pizza = () => {
+const Pizza = ({ pizzaObj }) => {
+
+  // if(pizzaObj.soldOut)
+  // {
+  //   return null 
+  // }
+
   return (
-    <div>
-    <img src="public\pizzas\spinaci.jpg"></img>
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-      
-    </div>
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={ pizzaObj.name }></img>
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{ pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price + 3 }</span>
+      </div>
+    </li>
   );
 };
 
